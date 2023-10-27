@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Creative Coding",
     "section": "",
-    "text": "R is a programming language used widely for data analysis, but in this workshop, we will explore ways to make art!\nWe will use the following materials for inspiration:"
+    "text": "R is a programming language used widely for data analysis, but in this workshop, we will explore ways to make art!\nIf you need a refresher for using ggplot2, check out this online chapter here.\nWe will use the following materials for inspiration:"
   },
   {
     "objectID": "index.html#sharing-your-artwork",
