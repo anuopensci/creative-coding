@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Creative Coding",
+    "section": "",
+    "text": "R is a programming language used widely for data analysis, but in this workshop, we will explore ways to make art!\nWe will use the following materials for inspiration:"
+  },
+  {
+    "objectID": "index.html#sharing-your-artwork",
+    "href": "index.html#sharing-your-artwork",
+    "title": "Creative Coding",
+    "section": "Sharing your artwork",
+    "text": "Sharing your artwork\nPlease upload your artwork (and optionally your code to generate the artwork) here. Your name (based on your input) will be included in the display."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "The goal of this creative coding workshop is so that we can create a space where we (at ANU) can commune to discuss coding while having some fun with art. If this workshop is successful, there may be opportunities to repeat this in the future and in essence, create a community where creative coders can connect. We would also love to showcase the generative art you create on this website!\nWhile the primary materials are geared towards those who are proficient in R, those who want to come and join are welcomed!"
+  },
+  {
+    "objectID": "about.html#mental-health-awareness-month",
+    "href": "about.html#mental-health-awareness-month",
+    "title": "About",
+    "section": "Mental Health Awareness Month",
+    "text": "Mental Health Awareness Month\nMental Health Awareness Month is a Month dedicated to raising awareness of the risk factors for Mental Health Conditions and the connections between mental and physical health. One of the key focuses during this month is to bring awareness to noticing signs of mental health conditions as they arise, letting people know how and who they can ask for help, and giving people ideas and resources on how to maintain their mental health. Whilst Mental Health Awareness month is just one month of the year, the things you can learn during the month can be used and practiced throughout the year.\nFor more details see the College of Science intranet on wellbeing."
+  },
+  {
+    "objectID": "about.html#acknowledgement",
+    "href": "about.html#acknowledgement",
+    "title": "About",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\nThank you to Nat Thomas, Senior Advisor for Diversity and Culture at CoS, for providing us with the room and afternoon tea for this activity.\nThis website is built using Quarto and hosted using GitHub pages."
+  }
+]
