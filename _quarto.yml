@@ -11,6 +11,7 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - getting-started.qmd
       - about.qmd
 
 format:

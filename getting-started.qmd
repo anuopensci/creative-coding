@@ -1,0 +1,47 @@
+---
+title: "Getting started"
+execute: 
+  message: false
+  warning: false
+---
+
+This quick start guide is largely inspired from the excellent [workshop by Danielle Navarro](https://art-from-code.netlify.app/). 
+
+```{r}
+library(tidyverse)
+# let's remove any labels and scales
+theme_set(theme_void() + theme(legend.position = "none"))
+```
+
+Start with any data you like, but we are going to plot the data in the `mtcars` dataset. We can start with some simple scatter plot. 
+
+```{r}
+ggplot(mtcars, aes(wt, disp, color = factor(am))) + 
+  geom_point(size = 5) +
+  scale_color_manual(values = c("skyblue", "orange"))
+```
+
+Now let's have some fun!
+
+```{r}
+g1 <- ggplot(mtcars, aes(wt, disp))  +
+  geom_segment(aes(xend = 0, yend = 0, linewidth = hp)) +
+  geom_point(size = 5, color = "black", aes(wt - 0.02, disp - 1)) +
+  geom_point(aes(color = factor(am)), size = 5) +
+  scale_color_manual(values = c("skyblue", "orange")) +
+  scale_linewidth_continuous(range = c(0.05, 1))
+
+g1
+```
+
+```{r}
+g1 + coord_polar()
+```
+
+```{r}
+g1 + 
+  coord_polar("y") +
+  annotate("point", size = 20, x = 0, y = 0) +
+  annotate("point", size = 3, x = 0.5, y = 1, color = "white") 
+```
+
