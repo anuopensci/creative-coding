@@ -1,0 +1,21 @@
+---
+title: "Creative Coding"
+subtitle: Make generative art with R
+---
+
+
+R is a programming language used widely for data analysis, but in this workshop, we will explore ways to make art! 
+
+::: callout-warning
+
+## Prerequisite
+ 
+Please note that you are expected to be proficient in R and some knowledge of tidyverse or ggplot2 as we do not have time to cover the basics in this workshop. Participants are expected also to bring their own laptops with R installed.
+
+:::
+
+We will use the following materials for inspiration:
+
+- **Art from code** by Danielle Navarro [{{< fa link >}}](https://art-from-code.netlify.app/) [{{< fa brands github >}}](https://github.com/rstudio-conf-2022/art-from-code)
+- **Steal like an Rtist: Creative Coding in R** by Ijeamaka Anyene Fumagalli and Sharla Gelfand [{{< fa brands github >}}](https://github.com/posit-conf-2023/creative-coding)
+
