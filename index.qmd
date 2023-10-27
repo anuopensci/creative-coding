@@ -14,10 +14,13 @@ Please note that you are expected to be proficient in R and some knowledge of ti
 
 :::
 
+If you need a **refresher for using `ggplot2`**, check out this online chapter [here](https://learnr.numbat.space/chapter6).
+
 We will use the following materials for inspiration:
 
 - **Art from code** by Danielle Navarro [{{< fa link >}}](https://art-from-code.netlify.app/) [{{< fa brands github >}}](https://github.com/rstudio-conf-2022/art-from-code)
 - **Steal like an Rtist: Creative Coding in R** by Ijeamaka Anyene Fumagalli and Sharla Gelfand [{{< fa brands github >}}](https://github.com/posit-conf-2023/creative-coding)
+
 
 
 ## Sharing your artwork
