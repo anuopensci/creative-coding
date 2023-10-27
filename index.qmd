@@ -19,3 +19,10 @@ We will use the following materials for inspiration:
 - **Art from code** by Danielle Navarro [{{< fa link >}}](https://art-from-code.netlify.app/) [{{< fa brands github >}}](https://github.com/rstudio-conf-2022/art-from-code)
 - **Steal like an Rtist: Creative Coding in R** by Ijeamaka Anyene Fumagalli and Sharla Gelfand [{{< fa brands github >}}](https://github.com/posit-conf-2023/creative-coding)
 
+
+## Sharing your artwork
+
+Please upload your artwork (and optionally your code to generate the artwork) [here](https://www.dropbox.com/request/DRq48DNRGU9mhpI2MZDd). Your name (based on your input) will be included in the display. 
+
+Please note that the link expires at 30th Nov 2023. Beyond this date or there are other matters, please get in touch with Emi Tanaka (emi.tanaka@anu.edu.au) to display your artwork. 
+
