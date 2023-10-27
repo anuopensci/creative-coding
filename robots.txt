@@ -1,1 +1,1 @@
-Sitemap: https://anu-links.github.io/creative-coding/sitemap.xml
+Sitemap: https://github.com/anu-links/creative-coding/sitemap.xml
