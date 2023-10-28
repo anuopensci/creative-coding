@@ -16,6 +16,6 @@ For more details see the [College of Science intranet on wellbeing](https://intr
 ## Acknowledgement
 
 
-Thank you to **Nat Thomas**, Senior Advisor for Diversity and Culture at CoS, for providing us with the room and afternoon tea for this activity.
+Thank you to **Nat Thomas**, Senior Advisor for Diversity and Culture at CoS, for booking us the room and organising the afternoon tea for this activity.
 
 This website is built using **Quarto** and hosted using **GitHub pages**.
