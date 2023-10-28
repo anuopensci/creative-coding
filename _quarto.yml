@@ -13,10 +13,11 @@ website:
         text: Home
       - getting-started.qmd
       - about.qmd
+  margin-header: |
+    ![](/images/ANU_Secondary_Horizontal_GoldBlack.png)
 
 format:
   html:
-    theme: cosmo
     css: styles.css
     toc: true
 
