@@ -7,11 +7,31 @@ execute:
 
 This quick start guide is largely inspired from the excellent [workshop by Danielle Navarro](https://art-from-code.netlify.app/). 
 
+
 ```{r}
 library(tidyverse)
 # let's remove any labels and scales
 theme_set(theme_void() + theme(legend.position = "none"))
 ```
+
+<details><summary>(Optional) recording the making of the plot</summary>
+
+
+```{r}
+#| eval: false
+library(camcorder) # optional! For getting the gif at the end.
+gg_record(
+  dir = file.path(tempdir(), "recording"), # where to save the recording
+  device = "jpeg", # device to use to save images
+  width = 4,      # width of saved image
+  height = 4,     # height of saved image
+  units = "in",   # units for width and height
+  dpi = 300       # dpi to use when saving image
+)
+```
+
+</details>
+
 
 Start with any data you like, but we are going to plot the data in the `mtcars` dataset. We can start with some simple scatter plot. 
 
@@ -44,4 +64,21 @@ g1 +
   annotate("point", size = 20, x = 0, y = 0) +
   annotate("point", size = 3, x = 0.5, y = 1, color = "white") 
 ```
+
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code to create gif"
+#| eval: false
+gg_playback(
+  name = "getting-started.gif",
+  first_image_duration = 5,
+  last_image_duration = 15,
+  frame_duration = .7,
+  image_resize = 600
+)
+```
+
+![](getting-started.gif)
 
