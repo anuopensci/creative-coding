@@ -11,7 +11,7 @@
     "href": "index.html#sharing-your-artwork",
     "title": "Creative Coding",
     "section": "Sharing your artwork",
-    "text": "Sharing your artwork\nPlease upload your artwork (and optionally your code to generate the artwork) here. Your name (based on your input) will be included in the display.\nPlease note that the link expires at 30th Nov 2023. Beyond this date or there are other matters, please get in touch with Emi Tanaka (emi.tanaka@anu.edu.au) to display your artwork."
+    "text": "Sharing your artwork\nPlease upload your artwork (and optionally your code to generate the artwork) here. Your name (based on your input) will be included in the display.\nAlternatively, if you are proficient in Git/GitHub and Quarto, then you are welcomed to do a pull request directly to the repo that hosts this website.\nPlease note that the link expires at 30th Nov 2023. Beyond this date or there are other matters, please get in touch with Emi Tanaka (emi.tanaka@anu.edu.au) to display your artwork."
   },
   {
     "objectID": "about.html",
@@ -32,7 +32,7 @@
     "href": "about.html#acknowledgement",
     "title": "About",
     "section": "Acknowledgement",
-    "text": "Acknowledgement\nThank you to Nat Thomas, Senior Advisor for Diversity and Culture at CoS, for booking us the room and organising the afternoon tea for this activity.\nThis website is built using Quarto and hosted using GitHub pages."
+    "text": "Acknowledgement\nThank you to Nat Thomas, Senior Advisor for Diversity and Culture at CoS, for booking us the room and organising the afternoon tea for this activity.\nThis website is built using Quarto and hosted using GitHub pages. All code to make this website can be found here."
   },
   {
     "objectID": "getting-started.html",
