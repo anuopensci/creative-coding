@@ -32,6 +32,13 @@
     "href": "about.html#acknowledgement",
     "title": "About",
     "section": "Acknowledgement",
-    "text": "Acknowledgement\nThank you to Nat Thomas, Senior Advisor for Diversity and Culture at CoS, for providing us with the room and afternoon tea for this activity.\nThis website is built using Quarto and hosted using GitHub pages."
+    "text": "Acknowledgement\nThank you to Nat Thomas, Senior Advisor for Diversity and Culture at CoS, for booking us the room and organising the afternoon tea for this activity.\nThis website is built using Quarto and hosted using GitHub pages."
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting started",
+    "section": "",
+    "text": "This quick start guide is largely inspired from the excellent workshop by Danielle Navarro.\n\nlibrary(tidyverse)\n# let's remove any labels and scales\ntheme_set(theme_void() + theme(legend.position = \"none\"))\n\nStart with any data you like, but we are going to plot the data in the mtcars dataset. We can start with some simple scatter plot.\n\nggplot(mtcars, aes(wt, disp, color = factor(am))) + \n  geom_point(size = 5) +\n  scale_color_manual(values = c(\"skyblue\", \"orange\"))\n\n\n\n\nNow let’s have some fun!\n\ng1 &lt;- ggplot(mtcars, aes(wt, disp))  +\n  geom_segment(aes(xend = 0, yend = 0, linewidth = hp)) +\n  geom_point(size = 5, color = \"black\", aes(wt - 0.02, disp - 1)) +\n  geom_point(aes(color = factor(am)), size = 5) +\n  scale_color_manual(values = c(\"skyblue\", \"orange\")) +\n  scale_linewidth_continuous(range = c(0.05, 1))\n\ng1\n\n\n\n\n\ng1 + coord_polar()\n\n\n\n\n\ng1 + \n  coord_polar(\"y\") +\n  annotate(\"point\", size = 20, x = 0, y = 0) +\n  annotate(\"point\", size = 3, x = 0.5, y = 1, color = \"white\")"
   }
 ]
