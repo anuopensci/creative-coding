@@ -1,0 +1,14 @@
+Package: creative-coding
+Title: Creative Coding
+Version: 0.0.0.9000
+Authors@R: 
+    person("Emi", "Tanaka", , "dr.emi.tanaka@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1455-259X"))
+Description: Not a package.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    ggplot2,
+    rmarkdown
