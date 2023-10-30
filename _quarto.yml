@@ -12,6 +12,7 @@ website:
       - href: index.qmd
         text: Home
       - getting-started.qmd
+      - truchet-tiles.qmd
       - about.qmd
   margin-header: |
     ![](/images/ANU_Secondary_Horizontal_GoldBlack.png)
