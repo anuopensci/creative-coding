@@ -1,0 +1,62 @@
+---
+title: "Truchet tiles"
+execute: 
+  message: false
+  warning: false
+---
+
+```{r}
+library(tidyverse)
+theme_set(theme_void() + theme(legend.position = "none"))
+
+# set up the tiles data
+tile1 <- tibble(x = c(0, 0, 1, 0, 1, 1, 0, 1),
+                y = c(0, 1, 0, 0, 0, 1, 1, 0),
+                g = factor(rep(1:2, each = 4)),
+                tile = "tile1")
+tile2 <- tibble(x = c(0, 0, 1, 0, 0, 1, 1, 0),
+                y = c(0, 1, 1, 0, 0, 1, 0, 0),
+                g = factor(rep(1:2, each = 4)),
+                tile = "tile2")
+# the next two tiles just reverse color
+tile3 <- tile1 %>% 
+  mutate(g = factor(rep(2:1, each = 4)),
+         tile = "tile3")
+tile4 <- tile2 %>% 
+  mutate(g = factor(rep(2:1, each = 4)),
+         tile = "tile4")
+
+set.seed(20231030)
+gtile <- ggplot(tile1, aes(x, y)) +
+  geom_polygon(aes(fill = g, group = g), color = "black", linewidth = 2) + 
+  coord_equal() + 
+  # sample two colors randomly
+  scale_fill_manual(values = sample(colors(), 2))
+
+gtile
+gtile %+% tile2
+gtile %+% tile3
+gtile %+% tile4
+```
+Now let's make 4 x 4 times grid with these tiles!
+
+```{r}
+mygrid <- expand_grid(row = 0:3, col = 0:3) %>% 
+  mutate(tile_id = 1:n()) %>% 
+  rowwise() %>% 
+  mutate(tile = sample(c("tile1", "tile2", "tile3", "tile4"), 1)) %>% 
+  full_join(bind_rows(tile1, tile2, tile3, tile4), by = "tile") %>% 
+  mutate(x = col + x,
+         y = row + y)
+
+mygrid
+```
+
+```{r}
+ggplot(mygrid, aes(x, y)) +
+  geom_polygon(aes(group = paste(tile_id, g), fill = g), color = "black", linewidth = 2) + 
+  coord_equal() + 
+  # sample two colors randomly
+  scale_fill_manual(values = sample(colors(), 2))
+```
+
