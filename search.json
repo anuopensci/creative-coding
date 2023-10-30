@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Creative Coding",
+    "objectID": "truchet-tiles.html",
+    "href": "truchet-tiles.html",
+    "title": "Truchet tiles",
     "section": "",
-    "text": "R is a programming language used widely for data analysis, but in this workshop, we will explore ways to make art!\nIf you need a refresher for using ggplot2, check out this online chapter here.\nWe will use the following materials for inspiration:"
+    "text": "library(tidyverse)\ntheme_set(theme_void() + theme(legend.position = \"none\"))\n\n# set up the tiles data\ntile1 &lt;- tibble(x = c(0, 0, 1, 0, 1, 1, 0, 1),\n                y = c(0, 1, 0, 0, 0, 1, 1, 0),\n                g = factor(rep(1:2, each = 4)),\n                tile = \"tile1\")\ntile2 &lt;- tibble(x = c(0, 0, 1, 0, 0, 1, 1, 0),\n                y = c(0, 1, 1, 0, 0, 1, 0, 0),\n                g = factor(rep(1:2, each = 4)),\n                tile = \"tile2\")\n# the next two tiles just reverse color\ntile3 &lt;- tile1 %&gt;% \n  mutate(g = factor(rep(2:1, each = 4)),\n         tile = \"tile3\")\ntile4 &lt;- tile2 %&gt;% \n  mutate(g = factor(rep(2:1, each = 4)),\n         tile = \"tile4\")\n\nset.seed(20231030)\ngtile &lt;- ggplot(tile1, aes(x, y)) +\n  geom_polygon(aes(fill = g, group = g), color = \"black\", linewidth = 2) + \n  coord_equal() + \n  # sample two colors randomly\n  scale_fill_manual(values = sample(colors(), 2))\n\ngtile\n\n\n\ngtile %+% tile2\n\n\n\ngtile %+% tile3\n\n\n\ngtile %+% tile4\n\n\n\n\nNow let’s make 4 x 4 times grid with these tiles!\n\nmygrid &lt;- expand_grid(row = 0:3, col = 0:3) %&gt;% \n  mutate(tile_id = 1:n()) %&gt;% \n  rowwise() %&gt;% \n  mutate(tile = sample(c(\"tile1\", \"tile2\", \"tile3\", \"tile4\"), 1)) %&gt;% \n  full_join(bind_rows(tile1, tile2, tile3, tile4), by = \"tile\") %&gt;% \n  mutate(x = col + x,\n         y = row + y)\n\nmygrid\n\n# A tibble: 128 × 7\n# Rowwise: \n     row   col tile_id tile      x     y g    \n   &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;\n 1     0     0       1 tile3     0     0 2    \n 2     0     0       1 tile3     0     1 2    \n 3     0     0       1 tile3     1     0 2    \n 4     0     0       1 tile3     0     0 2    \n 5     0     0       1 tile3     1     0 1    \n 6     0     0       1 tile3     1     1 1    \n 7     0     0       1 tile3     0     1 1    \n 8     0     0       1 tile3     1     0 1    \n 9     0     1       2 tile4     1     0 2    \n10     0     1       2 tile4     1     1 2    \n# ℹ 118 more rows\n\n\n\nggplot(mygrid, aes(x, y)) +\n  geom_polygon(aes(group = paste(tile_id, g), fill = g), color = \"black\", linewidth = 2) + \n  coord_equal() + \n  # sample two colors randomly\n  scale_fill_manual(values = sample(colors(), 2))"
   },
   {
-    "objectID": "index.html#sharing-your-artwork",
-    "href": "index.html#sharing-your-artwork",
-    "title": "Creative Coding",
-    "section": "Sharing your artwork",
-    "text": "Sharing your artwork\nPlease upload your artwork (and optionally your code to generate the artwork) here. Your name (based on your input) will be included in the display.\nAlternatively, if you are proficient in Git/GitHub and Quarto, then you are welcomed to do a pull request directly to the repo that hosts this website.\nPlease note that the link expires at 30th Nov 2023. Beyond this date or there are other matters, please get in touch with Emi Tanaka (emi.tanaka@anu.edu.au) to display your artwork."
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting started",
+    "section": "",
+    "text": "This quick start guide is largely inspired from the excellent workshop by Danielle Navarro.\n\nlibrary(tidyverse)\n# let's remove any labels and scales\ntheme_set(theme_void() + theme(legend.position = \"none\"))\n\n\n\n(Optional) recording the making of the plot\n\n\nlibrary(camcorder) # optional! For getting the gif at the end.\ngg_record(\n  dir = file.path(tempdir(), \"recording\"), # where to save the recording\n  device = \"jpeg\", # device to use to save images\n  width = 4,      # width of saved image\n  height = 4,     # height of saved image\n  units = \"in\",   # units for width and height\n  dpi = 300       # dpi to use when saving image\n)\n\n\nStart with any data you like, but we are going to plot the data in the mtcars dataset. We can start with some simple scatter plot.\n\nggplot(mtcars, aes(wt, disp, color = factor(am))) + \n  geom_point(size = 5) +\n  scale_color_manual(values = c(\"skyblue\", \"orange\"))\n\n\n\n\nNow let’s have some fun!\n\ng1 &lt;- ggplot(mtcars, aes(wt, disp))  +\n  geom_segment(aes(xend = 0, yend = 0, linewidth = hp)) +\n  geom_point(size = 5, color = \"black\", aes(wt - 0.02, disp - 1)) +\n  geom_point(aes(color = factor(am)), size = 5) +\n  scale_color_manual(values = c(\"skyblue\", \"orange\")) +\n  scale_linewidth_continuous(range = c(0.05, 1))\n\ng1\n\n\n\n\n\ng1 + coord_polar()\n\n\n\n\n\ng1 + \n  coord_polar(\"y\") +\n  annotate(\"point\", size = 20, x = 0, y = 0) +\n  annotate(\"point\", size = 3, x = 0.5, y = 1, color = \"white\") \n\n\n\n\n\n\nCode to create gif\ngg_playback(\n  name = \"getting-started.gif\",\n  first_image_duration = 5,\n  last_image_duration = 15,\n  frame_duration = .7,\n  image_resize = 600\n)"
   },
   {
     "objectID": "about.html",
@@ -35,10 +35,17 @@
     "text": "Acknowledgement\nThank you to Nat Thomas, Senior Advisor for Diversity and Culture at CoS, for booking us the room and organising the afternoon tea for this activity.\nThis website is built using Quarto and hosted using GitHub pages. All code to make this website can be found here."
   },
   {
-    "objectID": "getting-started.html",
-    "href": "getting-started.html",
-    "title": "Getting started",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Creative Coding",
     "section": "",
-    "text": "This quick start guide is largely inspired from the excellent workshop by Danielle Navarro.\n\nlibrary(tidyverse)\n# let's remove any labels and scales\ntheme_set(theme_void() + theme(legend.position = \"none\"))\n\n\n\n(Optional) recording the making of the plot\n\n\nlibrary(camcorder) # optional! For getting the gif at the end.\ngg_record(\n  dir = file.path(tempdir(), \"recording\"), # where to save the recording\n  device = \"jpeg\", # device to use to save images\n  width = 4,      # width of saved image\n  height = 4,     # height of saved image\n  units = \"in\",   # units for width and height\n  dpi = 300       # dpi to use when saving image\n)\n\n\nStart with any data you like, but we are going to plot the data in the mtcars dataset. We can start with some simple scatter plot.\n\nggplot(mtcars, aes(wt, disp, color = factor(am))) + \n  geom_point(size = 5) +\n  scale_color_manual(values = c(\"skyblue\", \"orange\"))\n\n\n\n\nNow let’s have some fun!\n\ng1 &lt;- ggplot(mtcars, aes(wt, disp))  +\n  geom_segment(aes(xend = 0, yend = 0, linewidth = hp)) +\n  geom_point(size = 5, color = \"black\", aes(wt - 0.02, disp - 1)) +\n  geom_point(aes(color = factor(am)), size = 5) +\n  scale_color_manual(values = c(\"skyblue\", \"orange\")) +\n  scale_linewidth_continuous(range = c(0.05, 1))\n\ng1\n\n\n\n\n\ng1 + coord_polar()\n\n\n\n\n\ng1 + \n  coord_polar(\"y\") +\n  annotate(\"point\", size = 20, x = 0, y = 0) +\n  annotate(\"point\", size = 3, x = 0.5, y = 1, color = \"white\") \n\n\n\n\n\n\nCode to create gif\ngg_playback(\n  name = \"getting-started.gif\",\n  first_image_duration = 5,\n  last_image_duration = 15,\n  frame_duration = .7,\n  image_resize = 600\n)"
+    "text": "R is a programming language used widely for data analysis, but in this workshop, we will explore ways to make art!\nIf you need a refresher for using ggplot2, check out this online chapter here.\nWe will use the following materials for inspiration:"
+  },
+  {
+    "objectID": "index.html#sharing-your-artwork",
+    "href": "index.html#sharing-your-artwork",
+    "title": "Creative Coding",
+    "section": "Sharing your artwork",
+    "text": "Sharing your artwork\nPlease upload your artwork (and optionally your code to generate the artwork) here. Your name (based on your input) will be included in the display.\nAlternatively, if you are proficient in Git/GitHub and Quarto, then you are welcomed to do a pull request directly to the repo that hosts this website.\nPlease note that the link expires at 30th Nov 2023. Beyond this date or there are other matters, please get in touch with Emi Tanaka (emi.tanaka@anu.edu.au) to display your artwork."
   }
 ]
