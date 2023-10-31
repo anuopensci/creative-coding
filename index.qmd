@@ -31,3 +31,42 @@ Alternatively, if you are proficient in Git/GitHub and Quarto, then you are welc
 
 Please note that the link expires at 30th Nov 2023. Beyond this date or there are other matters, please get in touch with Emi Tanaka (emi.tanaka@anu.edu.au) to display your artwork. 
 
+## aRt
+
+By *Elle Saber*
+
+```{r}
+#| code-fold: true
+#| warning: false
+library(tidyverse)
+theme_set(theme_void() + theme(legend.position = "none"))
+set.seed(1)
+
+n <- 100
+
+segments.dat <- tibble(
+  x0 = rnorm(n, 50, 20),
+  y0 = rt(n, df = 10),
+  x1 = x0 + runif(n, min = 0, max = 10),
+  y1 = y0 + runif(n, min = 0, max = 1),
+  shade = runif(n), 
+  size = runif(n)
+)
+
+curly.dat <- tibble(x = seq(1, 120, by=.2),
+                    ysin = sin(x))
+
+
+middle.dat <- tibble(x = runif(100, 1, 100), 
+                     y = rnorm(100))
+
+ggplot() + 
+  geom_segment(data = middle.dat, aes(x,y, xend=0, yend =0), colour = "deepskyblue3", alpha=.5, size = 5)+
+  geom_segment(data = segments.dat, aes(x = x0, y = y0,
+                                        xend = x1, yend = y1,
+                                        colour = shade, size = size )) + 
+  scale_color_viridis_c(option = "magma") + 
+  geom_polygon(data = curly.dat, aes(x, ysin), fill = "violetred", alpha=.5) + 
+  coord_polar() 
+```
+
