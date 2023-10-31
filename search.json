@@ -47,5 +47,12 @@
     "title": "Creative Coding",
     "section": "Sharing your artwork",
     "text": "Sharing your artwork\nPlease upload your artwork (and optionally your code to generate the artwork) here. Your name (based on your input) will be included in the display.\nAlternatively, if you are proficient in Git/GitHub and Quarto, then you are welcomed to do a pull request directly to the repo that hosts this website.\nPlease note that the link expires at 30th Nov 2023. Beyond this date or there are other matters, please get in touch with Emi Tanaka (emi.tanaka@anu.edu.au) to display your artwork."
+  },
+  {
+    "objectID": "index.html#art",
+    "href": "index.html#art",
+    "title": "Creative Coding",
+    "section": "aRt",
+    "text": "aRt\nBy Elle Saber\n\n\nCode\nlibrary(tidyverse)\ntheme_set(theme_void() + theme(legend.position = \"none\"))\nset.seed(1)\n\nn &lt;- 100\n\nsegments.dat &lt;- tibble(\n  x0 = rnorm(n, 50, 20),\n  y0 = rt(n, df = 10),\n  x1 = x0 + runif(n, min = 0, max = 10),\n  y1 = y0 + runif(n, min = 0, max = 1),\n  shade = runif(n), \n  size = runif(n)\n)\n\ncurly.dat &lt;- tibble(x = seq(1, 120, by=.2),\n                    ysin = sin(x))\n\n\nmiddle.dat &lt;- tibble(x = runif(100, 1, 100), \n                     y = rnorm(100))\n\nggplot() + \n  geom_segment(data = middle.dat, aes(x,y, xend=0, yend =0), colour = \"deepskyblue3\", alpha=.5, size = 5)+\n  geom_segment(data = segments.dat, aes(x = x0, y = y0,\n                                        xend = x1, yend = y1,\n                                        colour = shade, size = size )) + \n  scale_color_viridis_c(option = \"magma\") + \n  geom_polygon(data = curly.dat, aes(x, ysin), fill = \"violetred\", alpha=.5) + \n  coord_polar()"
   }
 ]
