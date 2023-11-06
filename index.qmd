@@ -70,3 +70,51 @@ ggplot() +
   coord_polar() 
 ```
 
+By *Erin Walsh*
+
+
+```{r}
+#| code-fold: true
+#| warning: false
+########################## Rtist workshop 30/10/2023 ##########################
+## Playing with Truchet tiles exercise
+## erin.walsh@anu.edu.au
+
+library(ggplot2)
+library(gridExtra)
+
+gconst <- factor(rep(1:2, each = 4))
+poss_seqs <- sample(c(0,1), size = 8, replace = TRUE)
+
+rand_tile <- function(seed=1,num=1){set.seed(seed)
+  data.frame(x = sample(c(0,1), size = 8, replace = TRUE),
+         y = sample(c(0,1), size = 8, replace = TRUE),
+         g = factor(rep(1:2, each = 4)),
+         title = paste0("tile",num))}
+
+
+theme_set(theme_void() + theme(legend.position = "none"))
+
+plot_tile <- function(dat){
+  ggplot(dat, aes(x, y)) +
+    geom_polygon(aes(group = paste(title, g), fill = g), 
+                 color = sample(c("#9B5DE5","#F15BB5","#FEE440","#00BBF9","#00F5D4"),1), 
+                 linewidth = 1) + 
+    coord_equal() + 
+    ## sample two colors randomly
+    #scale_fill_manual(values = sample(colors(), 2))
+    scale_fill_manual(values = sample(c("#9B5DE5","#F15BB5","#FEE440","#00BBF9","#00F5D4"),2))
+}
+
+
+
+many_rows <- 8
+many_cols <- 8
+
+accum <- list()
+for(i in 1:(many_rows*many_cols)){accum[[i]] <- plot_tile(rand_tile(i,i))}
+
+do.call(grid.arrange, accum) 
+```
+
+

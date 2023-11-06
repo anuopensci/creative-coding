@@ -12,6 +12,8 @@ RoxygenNote: 7.2.3
 Imports: 
     camcorder,
     ggplot2,
-    rmarkdown
+    rmarkdown,
+    ggforce,
+    gridExtra
 Depends: 
     tidyverse
