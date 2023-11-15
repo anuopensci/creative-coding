@@ -19,3 +19,11 @@ For more details see the [College of Science intranet on wellbeing](https://intr
 Thank you to **Nat Thomas**, Senior Advisor for Diversity and Culture at CoS, for booking us the room and organising the afternoon tea for this activity.
 
 This website is built using **Quarto** and hosted using **GitHub pages**. All code to make this website can be found [here](https://github.com/anu-links/creative-coding).
+
+
+## Formal study
+
+For those interested in formal study about creative coding, you may want to check out the following courses:
+
+- **Foundations of Creative Code** [DESN2002](https://programsandcourses.anu.edu.au/course/DESN2002) or [DESN6002](https://programsandcourses.anu.edu.au/course/DESN6002)
+- **Art and Interaction Computing** [COMP1720](https://programsandcourses.anu.edu.au/2021/course/COMP1720)
